@@ -1,0 +1,125 @@
+﻿
+@page "/promociones"
+
+<PageTitle>Promociones</PageTitle>
+<h3>Promociones</h3>
+<p>Listado de promociones</p>
+<div class="row g-2 align-items-center mb-3">
+    <div class="col-auto">
+        <label class="col-form-label fw-bold">Estado:</label>
+    </div>
+    <div class="col-auto">
+        <select class="form-select" @bind="estadoFiltro">
+            <option value="">Sin filtro</option>
+            <option value="@EstadoProm.Activa">Activa</option>
+            <option value="@EstadoProm.Expirada">Expirada</option>
+        </select>
+    </div>
+    <div class="col-auto">
+        <button @onclick="() => FiltrarEstado()" class="btn btn-info">Filtrar</button>
+    </div>
+    <div class="col-auto">
+        <button @onclick="() => CrearPromocion()" class="btn btn-success">Agregar</button>
+    </div>
+</div>
+
+
+@if (promociones == null)
+{
+    <p><em>Cargando... </em> </p>
+}
+else
+{
+    <table class="table table-hover align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de fin</th>
+                <th>Descuento</th>
+                <th>Estado</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in promociones)
+            {
+                <tr>
+                    <td>@p.Id</td>
+                    <td>@p.Nombre</td>
+                    <td>@p.FechaInicio</td>
+                    <td>@p.FechaFin</td>
+                    <td>@p.Descuento%</td>
+                    <td>
+                        @if (p.Estado == EstadoProm.Activa)
+                        {
+                            <span class="badge bg-success">Activa</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Expirada</span>
+                        }
+                    </td>
+                    <td>
+                        @if(p.Estado == EstadoProm.Activa){ 
+                                <button @onclick="() => Expirar(p.Id)" class="btn btn-danger">Expirar</button>
+                        }                  
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<MensajeModal @ref="mensajeModal"/>
+<PromocionModal @ref="promoModal" OnPromocionGuardada="OnPromocionAgregada"/>
+@code {
+    private List<PromocionDTO>? promociones;
+    private MensajeModal mensajeModal;
+    private PromocionModal promoModal;
+    private EstadoProm? estadoFiltro = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarPromociones();
+    }
+    private async Task CargarPromociones()
+    {
+        promociones = await PromocionApiClient.GetAllAsync();
+    }
+
+    private async Task OnPromocionAgregada()
+    {
+        await CargarPromociones();
+        mensajeModal.ShowMessageModal("Promoción agregada correctamente.", "Nueva Promoción");
+    }
+
+    private async Task Expirar(int id)
+    {
+        var elim = await PromocionApiClient.DeleteAsync(id);
+        if (elim)
+        {
+            mensajeModal.ShowMessageModal("Promoción expirada correctamente.", "Expirar Promoción");
+
+        }
+        await CargarPromociones();
+    }
+
+    private async Task FiltrarEstado()
+    {
+        if(!estadoFiltro.HasValue)
+        {
+            await CargarPromociones();
+        }
+        else
+        {
+            promociones = await PromocionApiClient.GetByEstadoAsync(estadoFiltro.Value);
+        }
+    }
+
+    private async Task CrearPromocion()
+    {
+        promoModal.ShowAddModal();
+        
+    }
+}

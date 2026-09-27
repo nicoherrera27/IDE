@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Herrera.Data\Herrera.Data.csproj" />
+    <ProjectReference Include="..\Herrera.Domain\Herrera.Domain.csproj" />
+    <ProjectReference Include="..\Herrera.DTO\Herrera.DTO.csproj" />
+  </ItemGroup>
+
+</Project>
