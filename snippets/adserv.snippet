@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AD Service Template</Title>
+      <Shortcut>adserv</Shortcut>
+      <Description>Servicio con validaciones, llamadas asíncronas y mapeo DTO</Description>
+      <Author>UTN</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Entidad</ID>
+          <ToolTip>Nombre de la entidad</ToolTip>
+          <Default>Entidad</Default>
+        </Literal>
+        <Literal>
+          <ID>EstadoEnum</ID>
+          <ToolTip>Nombre del enum de estado</ToolTip>
+          <Default>EstadoEntidad</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[public class $Entidad$Service
+{
+    private readonly $Entidad$Repository _repo;
+
+    public $Entidad$Service($Entidad$Repository repo)
+    {
+        _repo = repo;
+    }
+
+    public async Task<List<$Entidad$DTO>> GetAllAsync()
+    {
+        var lista = await _repo.GetAllAsync();
+        return lista.Select(e => new $Entidad$DTO
+        {
+            Id = e.Id,
+            // Mapear campos
+            Estado = e.Estado
+        }).ToList();
+    }
+
+    public async Task<List<$Entidad$DTO>> GetByEstadoAsync($EstadoEnum$ estado)
+    {
+        var lista = await _repo.GetByEstadoAsync(estado);
+        return lista.Select(e => new $Entidad$DTO
+        {
+            Id = e.Id,
+            // Mapear campos
+            Estado = e.Estado
+        }).ToList();
+    }
+
+    public async Task<$Entidad$DTO> AddAsync($Entidad$DTO dto)
+    {
+        // 1. Validaciones requeridas
+        // if (string.IsNullOrWhiteSpace(dto.Campo))
+        //     throw new ArgumentException("El campo es requerido.");
+
+        // 2. Mapear a entidad
+        var entidad = new $Entidad$
+        {
+            // Mapear campos
+            Estado = $EstadoEnum$.Activo // Estado inicial automático
+        };
+
+        var creada = await _repo.AddAsync(entidad);
+        dto.Id = creada.Id;
+        dto.Estado = creada.Estado;
+        return dto;
+    }
+
+    public async Task<bool> DeleteAsync(int id) => await _repo.DeleteAsync(id);
+}]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

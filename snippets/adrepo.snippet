@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AD Repository Template</Title>
+      <Shortcut>adrepo</Shortcut>
+      <Description>Repositorio asíncrono con Entity Framework Core</Description>
+      <Author>UTN</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Entidad</ID>
+          <ToolTip>Nombre de la entidad</ToolTip>
+          <Default>Entidad</Default>
+        </Literal>
+        <Literal>
+          <ID>EstadoEnum</ID>
+          <ToolTip>Nombre del enum de estado</ToolTip>
+          <Default>EstadoEntidad</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[using Microsoft.EntityFrameworkCore;
+
+public class $Entidad$Repository
+{
+    private readonly $Entidad$Context _context;
+
+    public $Entidad$Repository($Entidad$Context context)
+    {
+        _context = context;
+    }
+
+    public async Task<List<$Entidad$>> GetAllAsync() =>
+        await _context.$Entidad$es.ToListAsync();
+
+    public async Task<List<$Entidad$>> GetByEstadoAsync($EstadoEnum$ estado) =>
+        await _context.$Entidad$es.Where(x => x.Estado == estado).ToListAsync();
+
+    public async Task<$Entidad$> AddAsync($Entidad$ entidad)
+    {
+        await _context.$Entidad$es.AddAsync(entidad);
+        await _context.SaveChangesAsync();
+        return entidad;
+    }
+
+    public async Task<bool> DeleteAsync(int id)
+    {
+        var entidad = await _context.$Entidad$es.FindAsync(id);
+        if (entidad == null) return false;
+
+        _context.$Entidad$es.Remove(entidad);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+}]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

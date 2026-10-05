@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AD Minimal API Endpoints</Title>
+      <Shortcut>adendpoints</Shortcut>
+      <Description>Endpoints minimalistas para la Web API</Description>
+      <Author>UTN</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Entidad</ID>
+          <ToolTip>Nombre de la entidad</ToolTip>
+          <Default>Entidad</Default>
+        </Literal>
+        <Literal>
+          <ID>Ruta</ID>
+          <ToolTip>Ruta del recurso en plural (ej. alquileres, promociones)</ToolTip>
+          <Default>entidades</Default>
+        </Literal>
+        <Literal>
+          <ID>EstadoEnum</ID>
+          <ToolTip>Nombre del enum de estado</ToolTip>
+          <Default>EstadoEntidad</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[public static class $Entidad$Endpoints
+{
+    public static void Map$Entidad$Endpoints(this WebApplication app)
+    {
+        app.MapGet("/$Ruta$", async ($Entidad$Service serv) =>
+            Results.Ok(await serv.GetAllAsync()));
+
+        app.MapGet("/$Ruta$/{estado}", async ($EstadoEnum$ estado, $Entidad$Service serv) =>
+            Results.Ok(await serv.GetByEstadoAsync(estado)));
+
+        app.MapPost("/$Ruta$", async ($Entidad$DTO dto, $Entidad$Service serv) =>
+        {
+            try
+            {
+                var creado = await serv.AddAsync(dto);
+                return Results.Created("/$Ruta$/" + creado.Id, creado);
+            }
+            catch (ArgumentException ex)
+            {
+                return Results.BadRequest(new { error = ex.Message });
+            }
+        });
+
+        app.MapDelete("/$Ruta$/{id}", async (int id, $Entidad$Service serv) =>
+        {
+            var ok = await serv.DeleteAsync(id);
+            return ok ? Results.NoContent() : Results.NotFound();
+        });
+    }
+}]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AD DbContext Template</Title>
+      <Shortcut>adcontext</Shortcut>
+      <Description>DbContext con LocalDB, EnsureCreated y conversión de Enum a string</Description>
+      <Author>UTN</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Entidad</ID>
+          <ToolTip>Nombre de la entidad</ToolTip>
+          <Default>Entidad</Default>
+        </Literal>
+        <Literal>
+          <ID>DbName</ID>
+          <ToolTip>Nombre de la base de datos (ej. dbAlquiler, dbPromocion)</ToolTip>
+          <Default>dbParcial</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[using Microsoft.EntityFrameworkCore;
+
+public class $Entidad$Context : DbContext
+{
+    public DbSet<$Entidad$> $Entidad$es { get; set; }
+
+    public $Entidad$Context()
+    {
+        this.Database.EnsureCreated();
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Initial Catalog=$DbName$;Integrated Security=true");
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<$Entidad$>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            entity.Property(e => e.Estado).IsRequired().HasConversion<string>();
+        });
+    }
+}]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

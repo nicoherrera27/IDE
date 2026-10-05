@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AD WinForms Methods</Title>
+      <Shortcut>adwinforms</Shortcut>
+      <Description>Métodos de consumo para formulario WinForms (Carga de combo, filtro y refresco)</Description>
+      <Author>UTN</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Entidad</ID>
+          <ToolTip>Nombre de la entidad</ToolTip>
+          <Default>Entidad</Default>
+        </Literal>
+        <Literal>
+          <ID>EstadoEnum</ID>
+          <ToolTip>Nombre del enum de estado</ToolTip>
+          <Default>EstadoEntidad</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[private async void FormLista_Load(object sender, EventArgs e)
+{
+    cboEstado.DataSource = Enum.GetValues(typeof($EstadoEnum$));
+    await CargarGrilla();
+}
+
+private async void btnFiltrar_Click(object sender, EventArgs e)
+{
+    await CargarGrilla();
+}
+
+private async Task CargarGrilla()
+{
+    var estado = ($EstadoEnum$)cboEstado.SelectedItem;
+    dgvLista.DataSource = await $Entidad$ApiClient.GetByEstadoAsync(estado);
+}
+
+private async void btnFinalizar_Click(object sender, EventArgs e)
+{
+    if (dgvLista.CurrentRow?.DataBoundItem is $Entidad$DTO seleccionado)
+    {
+        bool ok = await $Entidad$ApiClient.DeleteAsync(seleccionado.Id);
+        if (ok)
+        {
+            MessageBox.Show("Operación realizada con éxito.");
+            await CargarGrilla();
+        }
+    }
+}]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

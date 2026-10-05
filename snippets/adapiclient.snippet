@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AD ApiClient</Title>
+      <Shortcut>adapiclient</Shortcut>
+      <Description>Cliente HTTP y métodos de consumo REST con System.Net.Http.Json</Description>
+      <Author>UTN</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Entidad</ID>
+          <ToolTip>Nombre de la entidad</ToolTip>
+          <Default>Entidad</Default>
+        </Literal>
+        <Literal>
+          <ID>Ruta</ID>
+          <ToolTip>Ruta del recurso en plural (ej. alquileres, promociones)</ToolTip>
+          <Default>entidades</Default>
+        </Literal>
+        <Literal>
+          <ID>Puerto</ID>
+          <ToolTip>Puerto local de la WebAPI</ToolTip>
+          <Default>5183</Default>
+        </Literal>
+        <Literal>
+          <ID>EstadoEnum</ID>
+          <ToolTip>Nombre del enum de estado</ToolTip>
+          <Default>EstadoEntidad</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[using System.Net.Http.Json;
+
+public static class ApiClient
+{
+    public static readonly HttpClient Http = new HttpClient
+    {
+        BaseAddress = new Uri("http://localhost:$Puerto$/")
+    };
+}
+
+public static class $Entidad$ApiClient
+{
+    public static async Task<List<$Entidad$DTO>> GetAllAsync()
+    {
+        var response = await ApiClient.Http.GetAsync("$Ruta$");
+        response.EnsureSuccessStatusCode();
+        return await response.Content.ReadFromJsonAsync<List<$Entidad$DTO>>() ?? new List<$Entidad$DTO>();
+    }
+
+    public static async Task<List<$Entidad$DTO>> GetByEstadoAsync($EstadoEnum$ estado)
+    {
+        var response = await ApiClient.Http.GetAsync("$$$Ruta$$/{estado}");
+        response.EnsureSuccessStatusCode();
+        return await response.Content.ReadFromJsonAsync<List<$Entidad$DTO>>() ?? new List<$Entidad$DTO>();
+    }
+
+    public static async Task<HttpResponseMessage> AddAsync($Entidad$DTO dto) =>
+        await ApiClient.Http.PostAsJsonAsync("$Ruta$", dto);
+
+    public static async Task<bool> DeleteAsync(int id)
+    {
+        var response = await ApiClient.Http.DeleteAsync("$$$Ruta$$/{id}");
+        return response.IsSuccessStatusCode;
+    }
+}]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
