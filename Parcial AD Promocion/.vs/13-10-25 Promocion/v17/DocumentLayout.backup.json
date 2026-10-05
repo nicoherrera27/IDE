@@ -1,0 +1,120 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8D4EF55A-5862-42B7-9C6A-70D1DBD352B7}|Herrera.PresentacionWinForm\\Herrera.PresentacionWinForm.csproj|c:\\users\\herre\\desktop\\parciales ide\\13-10-25 promocion\\herreranicolas\\herrera.presentacionwinform\\promocionlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D4EF55A-5862-42B7-9C6A-70D1DBD352B7}|Herrera.PresentacionWinForm\\Herrera.PresentacionWinForm.csproj|solutionrelative:herrera.presentacionwinform\\promocionlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D4EF55A-5862-42B7-9C6A-70D1DBD352B7}|Herrera.PresentacionWinForm\\Herrera.PresentacionWinForm.csproj|c:\\users\\herre\\desktop\\parciales ide\\13-10-25 promocion\\herreranicolas\\herrera.presentacionwinform\\promocionalta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D4EF55A-5862-42B7-9C6A-70D1DBD352B7}|Herrera.PresentacionWinForm\\Herrera.PresentacionWinForm.csproj|solutionrelative:herrera.presentacionwinform\\promocionalta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D4EF55A-5862-42B7-9C6A-70D1DBD352B7}|Herrera.PresentacionWinForm\\Herrera.PresentacionWinForm.csproj|c:\\users\\herre\\desktop\\parciales ide\\13-10-25 promocion\\herreranicolas\\herrera.presentacionwinform\\promocionlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8D4EF55A-5862-42B7-9C6A-70D1DBD352B7}|Herrera.PresentacionWinForm\\Herrera.PresentacionWinForm.csproj|solutionrelative:herrera.presentacionwinform\\promocionlista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CF454D5-3733-4025-8291-79B693608C92}|Herrera.Domain\\Herrera.Domain.csproj|c:\\users\\herre\\desktop\\parciales ide\\13-10-25 promocion\\herreranicolas\\herrera.domain\\promocion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CF454D5-3733-4025-8291-79B693608C92}|Herrera.Domain\\Herrera.Domain.csproj|solutionrelative:herrera.domain\\promocion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D4EF55A-5862-42B7-9C6A-70D1DBD352B7}|Herrera.PresentacionWinForm\\Herrera.PresentacionWinForm.csproj|c:\\users\\herre\\desktop\\parciales ide\\13-10-25 promocion\\herreranicolas\\herrera.presentacionwinform\\promocionalta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8D4EF55A-5862-42B7-9C6A-70D1DBD352B7}|Herrera.PresentacionWinForm\\Herrera.PresentacionWinForm.csproj|solutionrelative:herrera.presentacionwinform\\promocionalta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D4EF55A-5862-42B7-9C6A-70D1DBD352B7}|Herrera.PresentacionWinForm\\Herrera.PresentacionWinForm.csproj|c:\\users\\herre\\desktop\\parciales ide\\13-10-25 promocion\\herreranicolas\\herrera.presentacionwinform\\promocionlista.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D4EF55A-5862-42B7-9C6A-70D1DBD352B7}|Herrera.PresentacionWinForm\\Herrera.PresentacionWinForm.csproj|solutionrelative:herrera.presentacionwinform\\promocionlista.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 200,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Promocion.cs",
+              "DocumentMoniker": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.Domain\\Promocion.cs",
+              "RelativeDocumentMoniker": "Herrera.Domain\\Promocion.cs",
+              "ToolTip": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.Domain\\Promocion.cs",
+              "RelativeToolTip": "Herrera.Domain\\Promocion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T21:30:04.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PromocionAlta.cs",
+              "DocumentMoniker": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.PresentacionWinForm\\PromocionAlta.cs",
+              "RelativeDocumentMoniker": "Herrera.PresentacionWinForm\\PromocionAlta.cs",
+              "ToolTip": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.PresentacionWinForm\\PromocionAlta.cs",
+              "RelativeToolTip": "Herrera.PresentacionWinForm\\PromocionAlta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T21:23:12.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PromocionAlta.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.PresentacionWinForm\\PromocionAlta.cs",
+              "RelativeDocumentMoniker": "Herrera.PresentacionWinForm\\PromocionAlta.cs",
+              "ToolTip": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.PresentacionWinForm\\PromocionAlta.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Herrera.PresentacionWinForm\\PromocionAlta.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T21:22:30.919Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PromocionLista.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.PresentacionWinForm\\PromocionLista.cs",
+              "RelativeDocumentMoniker": "Herrera.PresentacionWinForm\\PromocionLista.cs",
+              "ToolTip": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.PresentacionWinForm\\PromocionLista.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Herrera.PresentacionWinForm\\PromocionLista.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T21:22:03.645Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PromocionLista.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.PresentacionWinForm\\PromocionLista.Designer.cs",
+              "RelativeDocumentMoniker": "Herrera.PresentacionWinForm\\PromocionLista.Designer.cs",
+              "ToolTip": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.PresentacionWinForm\\PromocionLista.Designer.cs",
+              "RelativeToolTip": "Herrera.PresentacionWinForm\\PromocionLista.Designer.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAvwF8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T20:01:41.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PromocionLista.cs",
+              "DocumentMoniker": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.PresentacionWinForm\\PromocionLista.cs",
+              "RelativeDocumentMoniker": "Herrera.PresentacionWinForm\\PromocionLista.cs",
+              "ToolTip": "C:\\Users\\herre\\Desktop\\Parciales ide\\13-10-25 Promocion\\HerreraNicolas\\Herrera.PresentacionWinForm\\PromocionLista.cs",
+              "RelativeToolTip": "Herrera.PresentacionWinForm\\PromocionLista.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAcwGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-04T20:01:26.688Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

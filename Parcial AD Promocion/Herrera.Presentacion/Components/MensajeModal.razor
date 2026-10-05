@@ -1,0 +1,41 @@
+﻿@if (showModal)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>@titulo</h5>
+                    <button type="button" class="btn-close" @onclick="Close"></button>
+                </div>
+               
+                <div class="modal-body text-center py-4">
+                    <h5 class="text-success mb-2">¡Operación Exitosa!</h5>
+                    <p class="text-muted mb-0">@mensaje</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+}
+
+
+
+@code {
+    private bool showModal = false;
+    private string titulo = "Aviso";
+    private string mensaje = "Operación realizada correctamente.";
+    public void ShowMessageModal(string mensajeTexto, string tituloTexto = "Aviso")
+    {
+        mensaje = mensajeTexto;
+        titulo = tituloTexto;
+        showModal = true;
+        StateHasChanged();
+    }
+
+    private void Close()
+    {
+        showModal = false;
+        StateHasChanged();
+    }
+}

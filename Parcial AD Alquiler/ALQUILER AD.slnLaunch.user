@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "Herrera.WebApi\\Herrera.WebApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Herrera.Presentacion\\Herrera.Presentacion.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

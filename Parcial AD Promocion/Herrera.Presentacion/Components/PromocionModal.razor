@@ -1,0 +1,96 @@
+﻿@if (showModal)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Alta de promocion</h5>
+                    <button type="button" class="btn-close" @onclick="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <EditForm Model="promo" OnValidSubmit="CrearPromo">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <InputText class="form-control" @bind-Value="promo.Nombre"> </InputText>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fecha inicio</label>
+                            <InputDate class="form-control" @bind-Value="promo.FechaInicio"> </InputDate>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fecha fin</label>
+                            <InputDate class="form-control" @bind-Value="promo.FechaFin"> </InputDate>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descuento</label>
+                            <InputNumber class="form-control" @bind-Value="promo.Descuento"> </InputNumber>
+                        </div>
+                        @if (!string.IsNullOrEmpty(errorMessage))
+                        {
+                            <div class="alert alert-danger py-2 mt-2">@errorMessage</div>
+                        }
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <button type="button" class="btn btn-secondary" @onclick="Close">Cancelar</button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+}
+
+
+
+@code {
+    [Parameter] public EventCallback OnPromocionGuardada { get; set; }
+
+    private PromocionDTO promo = new PromocionDTO();
+    private bool showModal = false;
+    private string? errorMessage;
+    public void ShowAddModal()
+    {
+        promo = new PromocionDTO
+        {
+            FechaInicio = DateOnly.FromDateTime(DateTime.Today),
+            FechaFin = DateOnly.FromDateTime(DateTime.Today.AddDays(7)),
+            Descuento = 10
+        };
+        errorMessage = null;
+        showModal = true;
+        StateHasChanged();
+    }
+
+    private void Close()
+    {
+        showModal = false;
+        StateHasChanged();
+    }
+
+    private async Task CrearPromo()
+    {
+        try
+        {
+            var response = await PromocionApiClient.AddAsync(promo);
+            if (response.IsSuccessStatusCode)
+            {
+                Close();
+                await OnPromocionGuardada.InvokeAsync();
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                errorMessage = "Error al guardar.";
+            }
+            
+        }
+        catch(Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+
+    }
+}

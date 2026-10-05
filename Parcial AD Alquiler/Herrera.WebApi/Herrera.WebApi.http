@@ -1,0 +1,6 @@
+@Herrera.WebApi_HostAddress = http://localhost:5051
+
+GET {{Herrera.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

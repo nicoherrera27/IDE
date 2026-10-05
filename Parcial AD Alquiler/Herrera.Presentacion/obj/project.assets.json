@@ -1,0 +1,146 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "Herrera.APIClients/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Herrera.DTO": "1.0.0",
+          "Herrera.Dominio": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Herrera.APIClients.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Herrera.APIClients.dll": {}
+        }
+      },
+      "Herrera.Dominio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Herrera.Dominio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Herrera.Dominio.dll": {}
+        }
+      },
+      "Herrera.DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Herrera.Dominio": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Herrera.DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Herrera.DTO.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Herrera.APIClients/1.0.0": {
+      "type": "project",
+      "path": "../Herrera.APICLIENT/Herrera.APIClients.csproj",
+      "msbuildProject": "../Herrera.APICLIENT/Herrera.APIClients.csproj"
+    },
+    "Herrera.Dominio/1.0.0": {
+      "type": "project",
+      "path": "../Herrera.Dominio/Herrera.Dominio.csproj",
+      "msbuildProject": "../Herrera.Dominio/Herrera.Dominio.csproj"
+    },
+    "Herrera.DTO/1.0.0": {
+      "type": "project",
+      "path": "../Herrera.DTO/Herrera.DTO.csproj",
+      "msbuildProject": "../Herrera.DTO/Herrera.DTO.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "Herrera.APIClients >= 1.0.0",
+      "Herrera.DTO >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\herre\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\herre\\Desktop\\Parciales AD\\Parcial AD Alquiler\\Herrera.Presentacion\\Herrera.Presentacion.csproj",
+      "projectName": "Herrera.Presentacion",
+      "projectPath": "C:\\Users\\herre\\Desktop\\Parciales AD\\Parcial AD Alquiler\\Herrera.Presentacion\\Herrera.Presentacion.csproj",
+      "packagesPath": "C:\\Users\\herre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\herre\\Desktop\\Parciales AD\\Parcial AD Alquiler\\Herrera.Presentacion\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\herre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {
+            "C:\\Users\\herre\\Desktop\\Parciales AD\\Parcial AD Alquiler\\Herrera.APICLIENT\\Herrera.APIClients.csproj": {
+              "projectPath": "C:\\Users\\herre\\Desktop\\Parciales AD\\Parcial AD Alquiler\\Herrera.APICLIENT\\Herrera.APIClients.csproj"
+            },
+            "C:\\Users\\herre\\Desktop\\Parciales AD\\Parcial AD Alquiler\\Herrera.DTO\\Herrera.DTO.csproj": {
+              "projectPath": "C:\\Users\\herre\\Desktop\\Parciales AD\\Parcial AD Alquiler\\Herrera.DTO\\Herrera.DTO.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.318/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
