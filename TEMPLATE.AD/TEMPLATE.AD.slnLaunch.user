@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "TEMPLATE.Escritorio\\TEMPLATE.Escritorio.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "TEMPLATE.Web\\TEMPLATE.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

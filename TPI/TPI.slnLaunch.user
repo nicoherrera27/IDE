@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": []
+  },
+  {
+    "Name": "API FORM",
+    "Projects": [
+      {
+        "Path": "WebAPI\\WebAPI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "WindowsForm\\WindowsForm.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Blazor.WebAssembly\\Blazor.WebAssembly.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
