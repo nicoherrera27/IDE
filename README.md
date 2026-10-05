@@ -1,16 +1,23 @@
 ## Estructura de Proyectos (.NET 8)
 
-> **Regla de nomenclatura:** Cada proyecto y espacio de nombres debe respetar el formato `[Apellido].[NombreProyecto]` (ejemplo: `Herrera.Dominio`, `Herrera.Data`, etc.).
-> 
-> *Nota: La capa de presentación se puede implementar en **Windows Forms** o **Blazor WebAssembly** según la elección solicitada.*
+> **Formato:** `HerreraNicolas.[NombreProyecto]`  
+> *Presentación: se implementa en **WinForms** o **Blazor WASM** según la consigna.*
 
-| Proyecto | Tipo / SDK | Paquetes NuGet | Referencias a Proyectos | Responsabilidad |
+| Proyecto | Tipo | Referencias | NuGet | Responsabilidad |
 | :--- | :--- | :--- | :--- | :--- |
-| **`[Apellido].Dominio`** | Biblioteca de clases (`net8.0`) | *Ninguno* | *Ninguna* | Entidades de negocio (`Alquiler`, `Promocion`) y enumeradores de estado (`EstadoAlquiler`, `EstadoProm`). |
-| **`[Apellido].DTO`** | Biblioteca de clases (`net8.0`) | *Ninguno* | `[Apellido].Dominio` | Clases DTO para transferencia desacoplada de datos entre capas y clientes. |
-| **`[Apellido].Data`** | Biblioteca de clases (`net8.0`) | `Microsoft.EntityFrameworkCore.SqlServer` | `[Apellido].Dominio` | `DbContext` (EF Core con `Database.EnsureCreated()`) y patrón repositorio (`AlquilerRepository`, `PromocionRepository`). |
-| **`[Apellido].Services`** | Biblioteca de clases (`net8.0`) | *Ninguno* | `[Apellido].Data`<br>`[Apellido].Dominio`<br>`[Apellido].DTO` | Lógica de negocio, validaciones requeridas por consigna y mapeo entidad-DTO. |
-| **`[Apellido].WebApi`** | ASP.NET Core Web API (`net8.0`) | `Microsoft.AspNetCore.OpenApi`<br>`Swashbuckle.AspNetCore` | `[Apellido].Dominio`<br>`[Apellido].DTO`<br>`[Apellido].Services`<br>`[Apellido].Data` | Minimal APIs / Controladores, endpoints asíncronos y Swagger. |
-| **`[Apellido].APIClients`** | Biblioteca de clases (`net8.0`) | *Ninguno* *(usa APIs nativas)* | `[Apellido].Dominio`<br>`[Apellido].DTO` | Cliente HTTP (`HttpClient`) y métodos asíncronos para consumir la Web API desde la presentación. |
-| **`[Apellido].Presentacion`** *(WinForms)* | Windows Forms App (`net8.0-windows`) | *Ninguno* | `[Apellido].APIClients`<br>`[Apellido].DTO`<br>`[Apellido].Dominio` | Interfaz de escritorio: formularios de listado, filtro por estado y alta de la entidad. |
-| **`[Apellido].Presentacion`** *(Blazor)* | Blazor WebAssembly (`net8.0`) | `Microsoft.AspNetCore.Components.WebAssembly`<br>`Microsoft.AspNetCore.Components.WebAssembly.DevServer` | `[Apellido].APIClients`<br>`[Apellido].DTO`<br>`[Apellido].Dominio` | Interfaz web: componentes Razor para listado con filtros y modal/formulario de alta. |
+| `HerreraNicolas.Dominio` | ClassLib (`net8.0`) | *Ninguna* | *Ninguno* | Entidad del negocio y enums de estado |
+| `HerreraNicolas.DTO` | ClassLib (`net8.0`) | `.Dominio` | *Ninguno* | DTOs para transporte de datos |
+| `HerreraNicolas.Data` | ClassLib (`net8.0`) | `.Dominio` | `EFCore.SqlServer` | DbContext (`EnsureCreated`) y Repositorios |
+| `HerreraNicolas.Services` | ClassLib (`net8.0`) | `.Dominio`<br>`.DTO`<br>`.Data` | *Ninguno* | Lógica de negocio y validaciones |
+| `HerreraNicolas.WebApi` | Web API (`net8.0`) | `.Dominio`<br>`.DTO`<br>`.Services`<br>`.Data` | `OpenApi`<br>`Swashbuckle` | Endpoints REST asíncronos y Swagger |
+| `HerreraNicolas.APIClients` | ClassLib (`net8.0`) | `.Dominio`<br>`.DTO` | *Ninguno* | `HttpClient` y consumo de la Web API |
+| `HerreraNicolas.Presentacion` *(WinForms)* | WinForms (`net8.0-windows`) | `.APIClients`<br>`.DTO`<br>`.Dominio` | *Ninguno* | Vistas de escritorio (listado, filtro y alta) |
+| `HerreraNicolas.Presentacion` *(Blazor)* | Blazor WASM (`net8.0`) | `.APIClients`<br>`.DTO`<br>`.Dominio` | `WebAssembly` | Vistas web Razor (listado, filtro y alta) |
+
+---
+
+### Paquetes NuGet detallados
+
+* **Data**: `Microsoft.EntityFrameworkCore.SqlServer`
+* **WebApi**: `Microsoft.AspNetCore.OpenApi` y `Swashbuckle.AspNetCore`
+* **Blazor** *(si se usa)*: `Microsoft.AspNetCore.Components.WebAssembly`
